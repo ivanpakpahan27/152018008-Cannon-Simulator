@@ -2527,7 +2527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4833593881282372, guid: 98414cb793fe9064c995ad0e2b589278, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.1
+      value: 33.2
       objectReference: {fileID: 0}
     - target: {fileID: 4833593881282372, guid: 98414cb793fe9064c995ad0e2b589278, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4332,7 +4332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4716805851289600, guid: 65b22875f82135b43abdb115c7a6b345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4716805851289600, guid: 65b22875f82135b43abdb115c7a6b345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4340,7 +4340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4716805851289600, guid: 65b22875f82135b43abdb115c7a6b345, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.2
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 4716805851289600, guid: 65b22875f82135b43abdb115c7a6b345, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5985,14 +5985,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698415393}
-  m_LocalRotation: {x: -0.028706253, y: -0.92127657, z: -0.38160524, w: -0.06930303}
-  m_LocalPosition: {x: -0.088, y: -0.02, z: -0.33}
+  m_LocalRotation: {x: -0.05875188, y: -0.99066067, z: 0.11386169, w: -0.046638783}
+  m_LocalPosition: {x: -0.10709, y: -0.09836626, z: -0.22994375}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 262217589}
   m_Father: {fileID: 1042060758}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.36, y: 175.341, z: 6.242}
 --- !u!4 &1749753559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f810ca53f25cd3748a57596bf84c4a20, type: 3}
@@ -7185,7 +7185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.3121
+      value: 165.79398
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7193,23 +7193,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 194.77016
+      value: 194.62924
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.31297678
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9497608
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7217,7 +7217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 143.523
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

@@ -23,11 +23,12 @@ public class ThrowSimulation : MonoBehaviour
 
     void Update()
     {  
-        barrel.rotation = Quaternion.Euler(-(firingAngle+90), 0f, 0f);
+        barrel.LookAt(new Vector3(Target.position.x, barrel.position.y, Target.position.z));
+
+        barrel.rotation = Quaternion.Euler(-(firingAngle), barrel.eulerAngles.y, barrel.eulerAngles.z);
 
         myTransform.LookAt(Target);
-        // barrel.LookAt(Target);
-        
+
         if (Input.GetButtonDown("Fire1"))
             {
                 if (magazineFlak >= 1) 
