@@ -1,9 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThrowSimulation : MonoBehaviour
 {
+    public Text Value_1;
+    public Text Value_2;
+    public Text Value_3;
+    public Text Value_4;
+    public Text Value_5;
+    public Text Value_6;
+    public Text Value_7;
+    public Text Value_8;
+    public Text Value_9;
+    public Text Value_10;
+
     public Transform Target;
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
@@ -22,7 +34,11 @@ public class ThrowSimulation : MonoBehaviour
     }
 
     void Update()
-    {  
+    { 
+        Value_1.text = firingAngle.ToString();
+        
+        Value_7.text = magazineFlak.ToString();
+
         barrel.LookAt(new Vector3(Target.position.x, barrel.position.y, Target.position.z));
 
         barrel.rotation = Quaternion.Euler(-(firingAngle), barrel.eulerAngles.y, barrel.eulerAngles.z);
@@ -55,9 +71,14 @@ public class ThrowSimulation : MonoBehaviour
         // Extract the X  Y componenent of the velocity
         float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
         float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
+
+        Value_2.text = Vy.ToString()+" m/s";
+        Value_3.text = Vx.ToString()+" m/s";
  
         // Calculate flight time.
         float flightDuration = target_Distance / Vx;
+
+        Value_5.text = flightDuration.ToString()+" s";
    
         // Rotate projectile to face the target.
         Projectile.rotation = Quaternion.LookRotation(Target.position - Projectile.position);
@@ -76,7 +97,18 @@ public class ThrowSimulation : MonoBehaviour
 
     IEnumerator WaitTime() 
     {
-            yield return new WaitForSeconds(10f);
-            magazineFlak = 1;
+        Value_8.text = "Isi ulang...";
+        yield return new WaitForSeconds(10f);
+        magazineFlak = 1;
+        Value_8.text = "";
+        Value_1.text = "";
+        Value_2.text = "";
+        Value_3.text = "";
+        Value_4.text = "";
+        Value_5.text = "";
+        Value_6.text = "";
+        Value_7.text = "";
+        Value_9.text = "";
+        Value_10.text = "";
     }  
 }

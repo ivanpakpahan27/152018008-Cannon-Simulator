@@ -12,6 +12,7 @@ public class FireCannon : MonoBehaviour
     public float scrollIncrements = 10;
     public Transform target;
     public int magazine = 1;
+    public string speed;
 
     public Text Value_1;
     public Text Value_2;
@@ -59,6 +60,9 @@ public class FireCannon : MonoBehaviour
 
         IEnumerator RemoveCannonball(GameObject ball) {
             yield return new WaitForSeconds(10f);
+            Value_2.text = "";
+            Value_3.text = "0 m/s";
+            Value_10.text = "0 m/s";
             Destroy(ball);
         }
 
