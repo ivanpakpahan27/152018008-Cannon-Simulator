@@ -7,6 +7,7 @@ public class Cam_Script : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
     public Camera camera3;
+    public Camera camera4;
     public GameObject panel_1;
     public GameObject panel_2;
     public GameObject player1;
@@ -17,6 +18,7 @@ public class Cam_Script : MonoBehaviour
         camera1.enabled = true;
         camera2.enabled = false;
         camera3.enabled = false;
+        camera4.enabled = false;
         panel_1.SetActive(true);
         panel_2.SetActive(false);
         player1.SetActive(true);
@@ -30,6 +32,7 @@ public class Cam_Script : MonoBehaviour
             camera1.enabled = true;
             camera2.enabled = false;
             camera3.enabled = false;
+            camera4.enabled = false;
             panel_1.SetActive(true);
             panel_2.SetActive(false);
             player1.SetActive(true);
@@ -41,6 +44,7 @@ public class Cam_Script : MonoBehaviour
             camera1.enabled = false;
             camera2.enabled = true;    
             camera3.enabled = false;
+            camera4.enabled = false;
             panel_1.SetActive(false);
             panel_2.SetActive(true);
             player1.SetActive(false);
@@ -52,10 +56,22 @@ public class Cam_Script : MonoBehaviour
             camera1.enabled = false;
             camera2.enabled = false;    
             camera3.enabled = true;
+            camera4.enabled = false;
             panel_1.SetActive(true);
             panel_2.SetActive(false);
             player1.SetActive(true);
             player2.SetActive(false);
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            camera1.enabled = false;
+            camera2.enabled = false;    
+            camera3.enabled = false;
+            camera4.enabled = true;
+            panel_1.SetActive(false);
+            panel_2.SetActive(true);
+            player1.SetActive(false);
+            player2.SetActive(true);
         }
     }
 }
