@@ -15,14 +15,19 @@ public class ThrowSimulation : MonoBehaviour
     public Text Value_8;
     public Text Value_9;
     public Text Value_10;
+    public Text Value_11;
 
     public Transform Target;
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public Transform pof;
     public Transform barrel;
+    public Transform groundTarget;
     public int magazineFlak = 1;
- 
+
+    public float x;
+    public float z;
+
     public Transform Projectile;      
     private Transform myTransform;
 
@@ -35,6 +40,8 @@ public class ThrowSimulation : MonoBehaviour
 
     void Update()
     { 
+        groundTarget.position = new Vector3(x,0.55f,z);
+
         Value_1.text = firingAngle.ToString();
         
         Value_7.text = magazineFlak.ToString();
@@ -80,13 +87,6 @@ public class ThrowSimulation : MonoBehaviour
 
         Value_5.text = flightDuration.ToString()+" s";
 
-        // Calculate Hmax.
-        // float Hmaximum = Mathf.Sqrt((target_Distance * 2 * gravity) / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad)));
-        // float Hmaximum_ = (Mathf.Pow(Hmaximum,2) * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
-        float Hmaximum_ = (projectile_Velocity * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
-
-        Value_4.text = Hmaximum_.ToString();
-
         // Rotate projectile to face the target.
         Projectile.rotation = Quaternion.LookRotation(Target.position - Projectile.position);
        
@@ -97,7 +97,18 @@ public class ThrowSimulation : MonoBehaviour
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
            
             elapse_time += Time.deltaTime;
- 
+
+            // Calculate Vx and Vy while t.
+            float VX = (projectile_Velocity * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
+
+            Value_4.text = VX.ToString();
+
+            float VY = (projectile_Velocity * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
+
+            Value_11.text = VY.ToString();
+
+            Debug.Log(elapse_time);
+
             yield return null;
         }
     }
