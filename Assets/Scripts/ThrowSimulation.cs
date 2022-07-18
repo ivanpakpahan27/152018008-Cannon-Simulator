@@ -79,7 +79,14 @@ public class ThrowSimulation : MonoBehaviour
         float flightDuration = target_Distance / Vx;
 
         Value_5.text = flightDuration.ToString()+" s";
-   
+
+        // Calculate Hmax.
+        // float Hmaximum = Mathf.Sqrt((target_Distance * 2 * gravity) / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad)));
+        // float Hmaximum_ = (Mathf.Pow(Hmaximum,2) * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
+        float Hmaximum_ = (projectile_Velocity * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
+
+        Value_4.text = Hmaximum_.ToString();
+
         // Rotate projectile to face the target.
         Projectile.rotation = Quaternion.LookRotation(Target.position - Projectile.position);
        
