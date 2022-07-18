@@ -16,19 +16,19 @@ public class ThrowSimulation : MonoBehaviour
     public Text Value_9;
     public Text Value_10;
     public Text Value_11;
+    public Text Value_12;
 
     public Transform Target;
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public Transform pof;
     public Transform barrel;
-    public Transform groundTarget;
     public int magazineFlak = 1;
 
-    public float x;
-    public float z;
+    public float _x_;
+    public float _z_;
 
-    public Transform Projectile;      
+    public Transform Projectile;        
     private Transform myTransform;
 
     private bool rotating = true;
@@ -40,7 +40,7 @@ public class ThrowSimulation : MonoBehaviour
 
     void Update()
     { 
-        groundTarget.position = new Vector3(x,0.55f,z);
+        // groundTarget.position = new Vector3(_x_,0.55f,_z_);
 
         Value_1.text = firingAngle.ToString();
         
@@ -71,7 +71,9 @@ public class ThrowSimulation : MonoBehaviour
        
         // Calculate distance to target
         float target_Distance = Vector3.Distance(Projectile.position, Target.position);
- 
+
+        Value_9.text = (Mathf.Round(target_Distance * 10f)* 0.1f).ToString()+" m";
+
         // Calculate the velocity needed to throw the object to the target at specified angle.
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
  
@@ -79,13 +81,11 @@ public class ThrowSimulation : MonoBehaviour
         float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
         float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
 
-        Value_2.text = Vy.ToString()+" m/s";
-        Value_3.text = Vx.ToString()+" m/s";
+        Value_2.text = (Mathf.Round(Vy * 10f)* 0.1f).ToString()+" m/s";
+        Value_3.text = (Mathf.Round(Vx * 10f)* 0.1f).ToString()+" m/s";
  
         // Calculate flight time.
         float flightDuration = target_Distance / Vx;
-
-        Value_5.text = flightDuration.ToString()+" s";
 
         // Rotate projectile to face the target.
         Projectile.rotation = Quaternion.LookRotation(Target.position - Projectile.position);
@@ -99,15 +99,23 @@ public class ThrowSimulation : MonoBehaviour
             elapse_time += Time.deltaTime;
 
             // Calculate Vx and Vy while t.
-            float VX = (projectile_Velocity * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
+            float VX_ = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
+            float VY_ = (Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad))-(gravity*elapse_time);
+            float Vt = Mathf.Sqrt(Mathf.Pow(VX_,2)+Mathf.Pow(VY_,2));
 
-            Value_4.text = VX.ToString();
+            
 
-            float VY = (projectile_Velocity * Mathf.Pow(Mathf.Sin(firingAngle * Mathf.Deg2Rad),2))/(2*gravity);
+            Value_4.text = (Mathf.Round(Vt * 10f)* 0.1f).ToString() + "m/s";
 
-            Value_11.text = VY.ToString();
+            // Calculate X while t.
+
+            float X_ = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad) * elapse_time;
+
+            Value_12.text = (Mathf.Round(X_ * 10f)* 0.1f).ToString() + "m";
 
             Debug.Log(elapse_time);
+
+            Value_5.text = (Mathf.Round(elapse_time * 10f)* 0.1f).ToString() + " s";
 
             yield return null;
         }
